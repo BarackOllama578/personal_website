@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Split from 'react-split'
+import NavBar from './components/Navbar';
+import { useState } from 'react'
 function App() {
+
+  const[displayNavBar, setDisplayNavBar] = useState(false)
+
+  function navHandleClick(){
+    setDisplayNavBar(prevState => !prevState)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body className="intro-page">
+            <div className='intro-page-header'> Hello world</div>
+      <Split sizes={[30,70]} direction="horizontal" className="split">
+        <NavBar handleClick={navHandleClick} displayNavBar={displayNavBar}></NavBar>
+        <div className='intro-page-body'></div>
+      
+      </Split>
+    </body>
   );
 }
 
