@@ -1,12 +1,19 @@
 export default function NavBar(props){
-    const {displayNavBar, handleClick} = props
-    var l = []
-    for (let i = 0; i < 10; i++){
-        l.push(<h1>place holder</h1>)
-    }
+    const {displayNavBar, handleClick, navBarElements} = props
+
     return (
         <div className="nav-bar">
-       {displayNavBar ? l : <button className="nav-button" onClick={handleClick}> Hello</button>}
+       {displayNavBar ? 
+       <div className="nav-menu">
+            <div>
+                {navBarElements}
+            </div>
+            
+            <button className="nav-button" onClick={handleClick}> Hello</button>
+       </div>
+       : 
+        <button className="nav-button" onClick={handleClick}> Hello</button>
+       }
         </div>
     )
 }
